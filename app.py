@@ -1,15 +1,14 @@
 from flask import Flask
-from flask_restful import Resource,Api
-from resources.hotel import Hoteis
+from flask_restful import Resource, Api
+from resources.hotel import Hoteis, Hotel
 
-app =Flask(__name__)
+app = Flask(__name__)
 api = Api(app)
 
-#Configuraçoes
+# Rotas
+api.add_resource(Hoteis, "/hoteis")
+api.add_resource(Hotel, "/hoteis/<string:id_hotel>")
 
-#Rotas
-api.add_resource(Hoteis,"/hoteis")
-
-#iniciar a plicaçao
+# iniciar a aplicação
 if __name__ == "__main__":
-    app.run(debug=True  )
+    app.run(debug=True)
